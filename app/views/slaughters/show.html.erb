@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Butcher:</b>
+  <%= @slaughter.butcher_id %>
+</p>
+
+<p>
+  <b>Transport:</b>
+  <%= @slaughter.transport_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_slaughter_path(@slaughter) %> |
+<%= link_to 'Back', slaughters_path %>

@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  butcher_id: 1
+  transport_id: MyString
+
+two:
+  butcher_id: 1
+  transport_id: MyString

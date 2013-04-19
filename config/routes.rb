@@ -1,4 +1,7 @@
 Mypigapp::Application.routes.draw do
+  resources :slaughters
+
+
   resources :litters
 
 

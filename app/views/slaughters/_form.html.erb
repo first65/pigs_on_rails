@@ -1,0 +1,33 @@
+<%= form_for(@slaughter) do |f| %>
+  <% if @slaughter.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@slaughter.errors.count, "error") %> prohibited this slaughter from being saved:</h2>
+
+      <ul>
+      <% @slaughter.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :butcher_id %><br />
+    <%= f.number_field :butcher_id %>
+  </div>
+  <div class="field">
+    <%= f.label :transport_id %><br />
+    <%= f.text_field :transport_id %>
+  </div>
+
+  <% @pigs.each do |pig| %>
+  	<%= f.fields_for :pigs, pig do |pig_field| %>
+  		<%= pig_field.label :slaughter_id, pig.name %>
+  		<%= pig_field.check_box :slaughter_id %>
+  	<% end %>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
