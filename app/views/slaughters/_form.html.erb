@@ -21,10 +21,9 @@
   </div>
 
   <% @pigs.each do |pig| %>
-  	<%= f.fields_for :pigs, pig do |pig_field| %>
-  		<%= pig_field.label :slaughter_id, pig.name %>
-  		<%= pig_field.check_box :slaughter_id %>
-  	<% end %>
+    <%= hidden_field_tag "slaughter[pig_ids][]" %>
+    <%= pig.name %>
+    <%= check_box_tag "slaughter[pig_ids][]", pig.id, @slaughter.pigs.include?(pig), :id => "slaughter_pig_ids_#{pig.id}" %>
   <% end %>
 
   <div class="actions">

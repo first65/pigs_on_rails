@@ -25,8 +25,8 @@ class SlaughtersController < ApplicationController
   # GET /slaughters/new.json
   def new
     @slaughter = Slaughter.new
-    @pigs = Pig.all
-
+    @pigs = Pig.where(slaughter_id: nil)
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @slaughter }
@@ -36,7 +36,7 @@ class SlaughtersController < ApplicationController
   # GET /slaughters/1/edit
   def edit
     @slaughter = Slaughter.find(params[:id])
-    @pigs = Pig.all
+    @pigs = Pig.where(slaughter_id: [nil, @slaughter.id])
   end
 
   # POST /slaughters
