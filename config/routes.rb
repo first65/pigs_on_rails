@@ -1,4 +1,7 @@
 Mypigapp::Application.routes.draw do
+  resources :healths
+
+
   resources :slaughters
 
 

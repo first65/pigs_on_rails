@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :status %><br />
-    <%= f.text_field :status %>
+    <%= f.collection_select(:status, Health.all, :id, :name) %>
   </div>
   <div class="actions">
     <%= f.submit %>

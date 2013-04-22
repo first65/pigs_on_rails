@@ -4,4 +4,8 @@ class Pig < ActiveRecord::Base
 
   belongs_to :slaughter
   belongs_to :litter
+  
+  def health
+    Health.find(self.status).name
+  end
 end

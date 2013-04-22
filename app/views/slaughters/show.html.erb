@@ -10,6 +10,14 @@
   <%= @slaughter.transport_id %>
 </p>
 
+<h2>Dead pigs :(</h2>
+
+<ul>
+  <% for pig in @slaughter.pigs %>
+    <li><%= pig.name %></li>
+  <% end %>  
+</ul>
+
 
 <%= link_to 'Edit', edit_slaughter_path(@slaughter) %> |
 <%= link_to 'Back', slaughters_path %>

@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130422151545) do
+ActiveRecord::Schema.define(:version => 20130422155137) do
+
+  create_table "healths", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "litters", :force => true do |t|
     t.string   "name"
@@ -24,9 +30,9 @@ ActiveRecord::Schema.define(:version => 20130422151545) do
     t.string   "name"
     t.integer  "litter_id"
     t.integer  "age"
-    t.string   "status"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.integer  "status",       :limit => 255
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
     t.integer  "slaughter_id"
   end
 
