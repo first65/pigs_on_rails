@@ -1,0 +1,27 @@
+<h1>Listing butchers</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Telephone</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @butchers.each do |butcher| %>
+  <tr>
+    <td><%= butcher.name %></td>
+    <td><%= butcher.address %></td>
+    <td><%= butcher.telephone %></td>
+    <td><%= link_to 'Show', butcher %></td>
+    <td><%= link_to 'Edit', edit_butcher_path(butcher) %></td>
+    <td><%= link_to 'Destroy', butcher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Butcher', new_butcher_path %>

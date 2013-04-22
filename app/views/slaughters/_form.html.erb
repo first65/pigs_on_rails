@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :butcher_id %><br />
-    <%= f.number_field :butcher_id %>
+  	<%= f.label :butcher_id %><br />
+  	<%= f.collection_select(:butcher_id, Butcher.all, :id, :name, :include_blank => "Please select...") %>
   </div>
   <div class="field">
     <%= f.label :transport_id %><br />

@@ -41,6 +41,9 @@ class LittersController < ApplicationController
   # POST /litters.json
   def create
     @litter = Litter.new(params[:litter])
+    @no_of_pigs = params[:no_of_piglets].to_i
+
+
 
     respond_to do |format|
       if @litter.save

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @butcher.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @butcher.address %>
+</p>
+
+<p>
+  <b>Telephone:</b>
+  <%= @butcher.telephone %>
+</p>
+
+
+<%= link_to 'Edit', edit_butcher_path(@butcher) %> |
+<%= link_to 'Back', butchers_path %>

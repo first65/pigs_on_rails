@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :litter_id %><br />
-    <%= f.collection_select(:litter_id, Litter.all, :id, :name) %>
+    <%= f.collection_select(:litter_id, Litter.all, :id, :name, :include_blank => "Please select...") %>
   </div>
   <div class="field">
     <%= f.label :age %><br />

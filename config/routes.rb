@@ -1,4 +1,10 @@
 Mypigapp::Application.routes.draw do
+  resources :orders
+
+
+  resources :butchers
+
+
   resources :slaughters
 
 

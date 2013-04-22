@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  customer: 1
+  status: MyString
+
+two:
+  customer: 1
+  status: MyString

@@ -26,7 +26,7 @@ class SlaughtersController < ApplicationController
   def new
     @slaughter = Slaughter.new
     @pigs = Pig.where(slaughter_id: nil)
-    
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @slaughter }
