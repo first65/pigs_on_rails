@@ -3,6 +3,8 @@
 <table>
   <tr>
     <th>Name</th>
+    <th>Sow</th>
+    <th>No of piglets</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,6 +13,8 @@
 <% @litters.each do |litter| %>
   <tr>
     <td><%= litter.name %></td>
+    <td><%= litter.sow.name %></td>
+    <td><%= litter.no_of_piglets %>
     <td><%= link_to 'Show', litter %></td>
     <td><%= link_to 'Edit', edit_litter_path(litter) %></td>
     <td><%= link_to 'Destroy', litter, method: :delete, data: { confirm: 'Are you sure?' } %></td>

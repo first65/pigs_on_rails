@@ -1,4 +1,7 @@
 class LittersController < ApplicationController
+  
+  include ApplicationHelper
+  
   # GET /litters
   # GET /litters.json
   def index
@@ -45,7 +48,7 @@ class LittersController < ApplicationController
     @no_of_piglets = params[:no_of_piglets].to_i
     
     @no_of_piglets.times do
-      Pig.create(name: @pig.name + ' piglet', status: 'Alive', age: 0, litter: @litter)
+      Pig.create(name: @pig.name + ' piglet', status: alive_id, dob: Time.now, litter: @litter)
     end
 
     respond_to do |format|

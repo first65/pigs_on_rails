@@ -7,4 +7,8 @@ class Litter < ActiveRecord::Base
     Pig.find(self.sow_id)
   end
   
+  def no_of_piglets
+    self.pigs.count
+  end
+  
 end

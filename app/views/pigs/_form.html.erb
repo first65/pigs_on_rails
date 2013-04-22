@@ -20,7 +20,7 @@
     <%= f.date_select :dob, :order => [:day, :month, :year] %>
   </div>
   <div class="field">
-    <%= f.hidden_field :status, value: Health.find_by_name('Alive').id %>
+    <%= f.hidden_field :status, value: alive_id %>
   </div>
   <div class="actions">
     <%= f.submit %>
