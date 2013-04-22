@@ -16,12 +16,11 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :age %><br />
-    <%= f.number_field :age %>
+    <%= f.label :dob %><br />
+    <%= f.date_select :dob, :order => [:day, :month, :year] %>
   </div>
   <div class="field">
-    <%= f.label :status %><br />
-    <%= f.collection_select(:status, Health.all, :id, :name) %>
+    <%= f.hidden_field :status, value: Health.find_by_name('Alive').id %>
   </div>
   <div class="actions">
     <%= f.submit %>

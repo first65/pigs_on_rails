@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130422155137) do
+ActiveRecord::Schema.define(:version => 20130422195442) do
 
   create_table "healths", :force => true do |t|
     t.string   "name"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(:version => 20130422155137) do
   create_table "pigs", :force => true do |t|
     t.string   "name"
     t.integer  "litter_id"
-    t.integer  "age"
+    t.datetime "dob"
     t.integer  "status",       :limit => 255
     t.datetime "created_at",                  :null => false
     t.datetime "updated_at",                  :null => false
