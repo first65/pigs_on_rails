@@ -1,8 +1,7 @@
 class Pig < ActiveRecord::Base
-  attr_accessible :age, :litter_id, :name, :status, :slaughter_id
-  validates_presence_of :age, :litter_id, :name, :status
+  attr_accessible :age, :name, :status, :slaughter_id, :litter
+  validates_presence_of :age, :name, :status
 
-  belongs_to :litter
   belongs_to :slaughter
-
+  belongs_to :litter
 end

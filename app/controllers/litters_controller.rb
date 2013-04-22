@@ -41,10 +41,16 @@ class LittersController < ApplicationController
   # POST /litters.json
   def create
     @litter = Litter.new(params[:litter])
+    @pig = Pig.find(@litter.sow_id)
+    @no_of_piglets = params[:no_of_piglets].to_i
+    
+    @no_of_piglets.times do
+      Pig.create(name: @pig.name + ' piglet', status: 'Alive', age: 0, litter: @litter)
+    end
 
     respond_to do |format|
       if @litter.save
-        format.html { redirect_to @litter, notice: 'Litter was successfully created.' }
+        format.html { redirect_to @litter, notice: 'Litter was successfully created with ' + @no_of_piglets.to_s + ' piglets' }
         format.json { render json: @litter, status: :created, location: @litter }
       else
         format.html { render action: "new" }

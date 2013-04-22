@@ -15,6 +15,16 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+  
+  <div class="field">
+    <%= f.label :sow_id, "Sow" %><br />
+    <%= f.collection_select :sow_id, Pig.all, :id, :name %>
+  </div>
+  
+  <div class="field">
+    <%= number_field_tag 'no_of_piglets', nil, :in => 1...20 %>
+  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

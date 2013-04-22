@@ -5,6 +5,18 @@
   <%= @litter.name %>
 </p>
 
+<p>
+  <b>Sow:</b>
+  <%= @litter.sow.name %>
+</p>
+
+<h2>Piglets</h2>
+
+<ul>
+<% for piglet in @litter.pigs %>
+  <li><%= piglet.name %></li>
+<% end %>
+</ul>
 
 <%= link_to 'Edit', edit_litter_path(@litter) %> |
 <%= link_to 'Back', litters_path %>
