@@ -1,6 +1,6 @@
 <h1>Listing litters</h1>
 
-<table>
+<table class="table">
   <tr>
     <th>Name</th>
     <th>Sow</th>
@@ -12,12 +12,11 @@
 
 <% @litters.each do |litter| %>
   <tr>
-    <td><%= litter.name %></td>
+    <td><%= link_to litter.name, litter %></td>
     <td><%= litter.sow.name %></td>
     <td><%= litter.no_of_piglets %>
-    <td><%= link_to 'Show', litter %></td>
     <td><%= link_to 'Edit', edit_litter_path(litter) %></td>
-    <td><%= link_to 'Destroy', litter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Delete', litter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

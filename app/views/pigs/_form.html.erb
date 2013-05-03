@@ -1,28 +1,12 @@
-<%= form_for(@pig) do |f| %>
-  <% if @pig.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@pig.errors.count, "error") %> prohibited this pig from being saved:</h2>
+<%= simple_form_for(@pig, :html => {:class => 'form-horizontal' }) do |f| %>
+  
+  <%= f.input :name %>
 
-      <ul>
-      <% @pig.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= f.input :dob, as: :date, :order => [:day, :month, :year] %>
+    
+  <%= f.hidden_field :status, value: alive_id %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :dob %><br />
-    <%= f.date_select :dob, :order => [:day, :month, :year] %>
-  </div>
-  <div class="field">
-    <%= f.hidden_field :status, value: alive_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit nil, class: "btn" %>
   </div>
 <% end %>

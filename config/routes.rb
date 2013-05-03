@@ -1,13 +1,7 @@
 Mypigapp::Application.routes.draw do
   resources :healths
-
-
   resources :slaughters
-
-
   resources :litters
-
-
   resources :pigs
 
 
@@ -57,10 +51,12 @@ Mypigapp::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  
+  match "/" => "home#index", as: :home
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'pigs#index'
+  # root :to => 'pigs#index'
 
   # See how all your routes lay out with "rake routes"
 

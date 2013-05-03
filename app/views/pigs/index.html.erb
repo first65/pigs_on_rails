@@ -1,6 +1,6 @@
-<h1>Listing pigs</h1>
+<h1>All <%= pluralize(@pigs.count, "pig") %></h1>
 
-<table>
+<table class="table">
   <tr>
     <th>Name</th>
     <th>Age</th>
@@ -8,18 +8,16 @@
     <th>Litter</th>
     <th></th>
     <th></th>
-    <th></th>
   </tr>
 
 <% @pigs.each do |pig| %>
   <tr>
-    <td><%= pig.name %></td>
+    <td><%= link_to pig.name, pig %></td>
     <td><%= pig.age %></td>
     <td><%= pig.health %></td>
     <td><%= pig.litter.name unless pig.litter.nil? %></td>
-    <td><%= link_to 'Show', pig %></td>
     <td><%= link_to 'Edit', edit_pig_path(pig) %></td>
-    <td><%= link_to 'Destroy', pig, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Delete', pig, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
