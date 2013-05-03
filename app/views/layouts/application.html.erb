@@ -7,16 +7,23 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="container">
+    <% flash.each do |name, msg| %>
+      <div class="alert alert-<%= name == :notice ? 'success' : 'error' %>">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        <%= msg %>
+      </div>
+    <% end %>
+    
+    <h1>My Pig App</h1>
+    <ul>
+      <li><%= link_to "Pigs",pigs_path %></li>
+      <li><%= link_to "Litters",litters_path %></li>
+      <li><%= link_to "Slaughters",slaughters_path %></li>
+    </ul>
+    <hr>
 
-<h1>My Pig App</h1>
-<ul>
-  <li><%= link_to "Pigs",pigs_path %></li>
-  <li><%= link_to "Litters",litters_path %></li>
-  <li><%= link_to "Slaughters",slaughters_path %></li>
-</ul>
-<hr>
-
-<%= yield %>
-
+    <%= yield %>
+  </div>
 </body>
 </html>
