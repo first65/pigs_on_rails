@@ -1,31 +1,18 @@
-<%= form_for(@litter) do |f| %>
-  <% if @litter.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@litter.errors.count, "error") %> prohibited this litter from being saved:</h2>
+<%= simple_form_for(@litter, html: { class: "form-horizontal" }) do |f| %>
 
-      <ul>
-      <% @litter.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+  <%= f.input :name %>
+  
+  <%= f.input :sow_id, collection: Pig.all, value_method: :id, label_method: :name %>
+  
+  <div class="control-group">
+    <label class="control-label" for="">No. of piglets</label>
+    <div class="controls">
+      <%= number_field_tag 'no_of_piglets', nil, :in => 1...20 %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
   </div>
   
-  <div class="field">
-    <%= f.label :sow_id, "Sow" %><br />
-    <%= f.collection_select :sow_id, Pig.all, :id, :name %>
+  <div class="form-actions">
+    <%= f.submit nil, class: "btn btn-success" %>
   </div>
   
-  <div class="field">
-    <%= number_field_tag 'no_of_piglets', nil, :in => 1...20 %>
-  </div>
-  
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

@@ -1,32 +1,26 @@
-<%= form_for(@slaughter) do |f| %>
-  <% if @slaughter.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@slaughter.errors.count, "error") %> prohibited this slaughter from being saved:</h2>
+<hr>
 
-      <ul>
-      <% @slaughter.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+<%= simple_form_for(@slaughter, html: { class: 'form-horizontal' }) do |f| %>
+
+  <%= f.input :butcher_id %>
+
+  <%= f.input :transport_id %>
+  
+  <div class="control-group">
+    <label class="control-label">Pigs to be slaughtered</label>
+    <div class="controls">
+      <% @pigs.each do |pig| %>
+        <%= hidden_field_tag "slaughter[pig_ids][]" %>
+        <label class="checkbox">
+          <%= check_box_tag "slaughter[pig_ids][]", pig.id, @slaughter.pigs.empty? ? false : @slaughter.pigs.include?(pig), :id => "slaughter_pig_ids_#{pig.id}" %>
+          <%= pig.name %>
+        </label>
       <% end %>
-      </ul>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :butcher_id %><br />
-    <%= f.number_field :butcher_id %>
-  </div>
-  <div class="field">
-    <%= f.label :transport_id %><br />
-    <%= f.text_field :transport_id %>
   </div>
 
-  <% @pigs.each do |pig| %>
-    <%= hidden_field_tag "slaughter[pig_ids][]" %>
-    <%= pig.name %>
-    <%= check_box_tag "slaughter[pig_ids][]", pig.id, @slaughter.pigs.include?(pig), :id => "slaughter_pig_ids_#{pig.id}" %>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit nil, class: "btn btn-success" %>
   </div>
+  
 <% end %>
